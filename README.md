@@ -1,1 +1,1 @@
-# My-collection-algo-cod
+# My-collection-algo-code
