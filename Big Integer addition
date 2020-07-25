@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+using namespace std;
+vector<int>addd;
+void add(string a,string b)
+{
+    int l = a.size();
+    int l1 = b.size();
+
+    reverse(a.begin(),a.end());                                  //cout<<"l = "<<l<<endl;//cout<<"l1 = "<<l1<<endl;
+    reverse(b.begin(),b.end());
+    int j=0,rslt,carry=0;
+
+    if(l <= l1)
+    {
+        swap(l,l1);
+        swap(a,b);
+    }
+
+    for(int i=0; i<l1; ++i)
+    {
+
+        rslt = (a[i]-'0') + (b[i]-'0') + carry;                   //cout<<"x = "<<x<<endl;//cout<<"y = "<<y<<endl;
+        carry = rslt/10;
+        addd.push_back(rslt%10);
+    }
+    for(int i=l1; i<l; ++i)
+    {
+        rslt = a[i] - '0' + carry;
+        addd.push_back(rslt%10);
+        carry = rslt/10;
+    }
+    if(carry)
+        addd.push_back(1);
+
+    reverse(addd.begin(),addd.end());                                //cout<<"rslt = "<<rslt<<endl;
+
+}                                                                    //cout<<"a = "<<a<<endl;
+
+
+int main()
+{
+    string answer,a,b;
+    while(cin>>a>>b)
+    {
+        add(a,b);
+        for(int i=0; i<addd.size(); ++i)
+            cout<<addd[i];
+        cout<<endl;
+        addd.clear();
+    }
+
+    return 0;
+}
+//Uva - 424
