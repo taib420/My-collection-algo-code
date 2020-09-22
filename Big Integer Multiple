@@ -56,7 +56,13 @@ string multi(string str,string str2)
         y = mul[i].size();
     }
     if(carry)
-        str.push_back(carry + '0');
+    {
+        while(carry != 0)
+        {
+            str.push_back(carry % 10 + '0');
+            carry /= 10;
+        }
+    }
     reverse(str.begin(),str.end());
     int countt = 0;
     for(int i = 0; i < str.size()-1; ++i)
