@@ -1,54 +1,54 @@
 #include<bits/stdc++.h>
 using namespace std;
-vector<int>addd;
-void add(string a,string b)
+
+string add(string x, string y)
 {
-    int l = a.size();
-    int l1 = b.size();
-
-    reverse(a.begin(),a.end());                                  //cout<<"l = "<<l<<endl;//cout<<"l1 = "<<l1<<endl;
-    reverse(b.begin(),b.end());
-    int j=0,rslt,carry=0;
-
-    if(l <= l1)
+    int sizee1 = x.size();
+    int sizee2 = y.size();
+    if(sizee1 < sizee2)
     {
-        swap(l,l1);
-        swap(a,b);
+//         int temp;
+//         string temp2;
+//         temp = sizee1;
+//         sizee1 = sizee2;
+//         sizee2 = temp;
+//         temp2 = x;
+//         x = y;
+//         y = temp2;
+        swap(sizee1,sizee2);
+        swap(str,str2);
+        
     }
 
-    for(int i=0; i<l1; ++i)
+    string add;
+    reverse(x.begin(),x.end());
+    reverse(y.begin(),y.end());
+    int carry = 0;
+    for(int i = 0; i < sizee2; ++i)
     {
-
-        rslt = (a[i]-'0') + (b[i]-'0') + carry;                   //cout<<"x = "<<x<<endl;//cout<<"y = "<<y<<endl;
-        carry = rslt/10;
-        addd.push_back(rslt%10);
+        int sum = ((x[i] - '0') + (y[i] - '0') + carry);
+        add.push_back(sum % 10 + '0');
+        carry = sum / 10;
     }
-    for(int i=l1; i<l; ++i)
+    for(int i = sizee2; i < sizee1; ++i)
     {
-        rslt = a[i] - '0' + carry;
-        addd.push_back(rslt%10);
-        carry = rslt/10;
+        int sum = (x[i] - '0') + carry;
+        add.push_back(sum % 10 + '0');
+        carry = sum / 10;
     }
     if(carry)
-        addd.push_back(1);
-
-    reverse(addd.begin(),addd.end());                                //cout<<"rslt = "<<rslt<<endl;
-
-}                                                                    //cout<<"a = "<<a<<endl;
-
+        add.push_back(carry + '0');
+    reverse(add.begin(),add.end());
+    return add;
+}
 
 int main()
 {
-    string answer,a,b;
-    while(cin>>a>>b)
+    string str, str2;
+    while(cin >> str >> str2)
     {
-        add(a,b);
-        for(int i=0; i<addd.size(); ++i)
-            cout<<addd[i];
-        cout<<endl;
-        addd.clear();
+        cout << "sum = " << add(str, str2) << endl;
     }
-
     return 0;
 }
 //Uva - 424
