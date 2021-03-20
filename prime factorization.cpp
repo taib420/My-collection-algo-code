@@ -27,7 +27,7 @@ void prime_factor(ll n)
 {
     sizee = 0;
     ll sq = sqrt(n);
-    for(ll i=0; prime[i]<=sq; ++i)
+    for(ll i=0; prime[i]<=sq && i < prime.size(); ++i)// and ificiant way is ------ for(i = 0; prime[i] * prime[i] <= n && i < prime.size(); ++i) // time kom lage arki
     {
         ll cp = prime[i];
         if(n%cp == 0)
