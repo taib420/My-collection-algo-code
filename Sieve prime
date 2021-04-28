@@ -1,6 +1,5 @@
 /*   ********Bismillah Hir-Rahmanir Rahim**********
             ********Allahu Akber********
-             *********Taib*********
              
 */
 //O(nlogn)
@@ -64,7 +63,7 @@ void prime()
                 cpp[j] = 1;
         }
     }
-    for(int i = 2; i <= 1000000; ++i)
+    for(int i = 3; i <= 1000000; i += 2)
     {
         if(!cpp[i])
             primee.push_back(i);
