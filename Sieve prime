@@ -57,10 +57,10 @@ void prime()
         cpp[i] = 1;
     for(int i = 3; i * i<= 1000000; i += 2)
     {
-        for(int j = i*i; j <= 1000000; j += i)
+        if(!cpp[i])
         {
-            if(!cpp[j])
-                cpp[j] = 1;
+           for(int j = i*i; j <= 1000000; j += (i+i))
+               cpp[j] = 1;
         }
     }
     for(int i = 3; i <= 1000000; i += 2)
