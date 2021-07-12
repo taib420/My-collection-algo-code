@@ -16,7 +16,7 @@ string add(string x, string y)
 //         x = y;
 //         y = temp2;
         swap(sizee1,sizee2);
-        swap(str,str2);
+        swap(x,y);
         
     }
 
